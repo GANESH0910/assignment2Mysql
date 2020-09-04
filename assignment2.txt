@@ -1,0 +1,46 @@
+1  SELECT * FROM `EmpTable` WHERE DeptNO = 10 OR  DeptNO = 30;
+
+2  SELECT DeptTable.Dname, DepatTable.Loc, COUNT(DeptTable.DeptNo) AS Employees
+   FROM `DeptTable` JOIN `EmpTable` USING(DeptNo) WHERE Employees>2
+   GROUP BY DeptTable.Dname;
+
+4  SELECT*FROM `EmpTable`WHERE Ename LIKE "%S";
+
+5  SELECT REPLACE (Ename,"a","#") FROM `EmpTable`;
+
+6  SELECT A.Ename, B.Ename AS Manager FROM EmpTable A, EmpTable B
+   WHERE A.EmpNo=B.Mgr ;
+
+7  SELECT DeptTable.Dname, SUM(EmpTable.Sal)  AS TotalSalary
+   FROM `EmpTable` JOIN `DeptTable` USING(DeptNo) GROUP BY Dname ;
+
+8  SELECT Ename.EmpTable, Dname.DeptTable, Loc.DeptTable FROM
+   `EmpTable` LEFT JOIN `DeptTable` USING(DeptNo);
+
+9  UPDATE `EmpTable`
+   SET Sal=0.1*"Sal"+"Sal" ;
+
+10  DELET Loc FROM `DeptTable` WHERE Loc=chennai;
+
+11  SELECT EmpNo, ("Sal"+"Commission") AS grosssalary FROM `EmpTable`;
+
+12  ALTER TABLE `EmpTable` ALTER COLUMN Ename varchar(250);
+
+13  SELECT NOW();
+
+14  CREATE TABLE `Student` (id INTEGER PRIMARY KEY, name VARCHAR ,Dob DATE, class INTEGER, Div VARCHAR );
+
+15  SELECT COUNT(Ename) FROM `EmpTable` WHERE Sal>10000;
+
+16  1) SELECT MIN(Sal) AS MinSalary FROM `EmpTable`;
+    2) SELECT MAX(Sal) AS MaxSalary FROM `EmpTable`;
+    3) SELECT AVG(Sal) AS AvgSalary FROM `EmpTable`;
+17  SELECT DeptTable.Loc, COUNT(DeptTable.DeptNo) AS NumberOfEmp
+    FROM EmpTable LEFT JOIN DeptTable USING(DeptNo)
+    GROUP BY Loc;
+
+18  SELECT*FROM `EmpTable` ORDER BY Ename DESC;
+
+19  SELECT * INTO EMP_BKP FROM EMP;
+
+20  SELECT SUBSTRING(Ename,1,3) FROM `EmpTable`;
